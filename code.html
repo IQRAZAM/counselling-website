@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Website</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&display=swap">
+    <style>
+        /* General styles */
+body {
+    font-family: 'Caprasimo', serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(203, 194, 211);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(236, 183, 109, 0.611);
+    padding: 10px 20px;
+}
+
+nav .logo {
+    color: white;
+
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li  h1 {
+    color: rgb(26, 23, 23);
+    font-family: 'Playfair Display', serif;
+    font-size: 50px;
+    font-display: none;
+    padding: 8px 16px;
+    margin-left: 50px;
+}
+nav ul li h3 {
+    color: rgb(26, 23, 23);
+    font-style: italic;
+    padding: 8px 16px;
+}
+nav ul li a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.content {
+    display: flex;
+    margin: 50px 0;
+}
+
+.content img {
+    width: 600px;
+    height: 500px;
+    object-fit: cover;
+}
+
+.content .text {
+    margin-left: 50px;
+}
+
+.content .text h1 {
+    font-size: 48px;
+}
+
+.content .text p {
+    font-size: 24px;
+}
+
+.content .text button {
+    background-color: rgba(236, 183, 109, 0.611);
+    color:black;
+    border: none;
+    border-radius: 7px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.content .text button:hover {
+    background-color: rgb(18, 151, 111);
+}
+#dynamic-content {
+    padding: 20px;
+    text-align: center;
+}
+
+#dynamic-content h1 {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+#dynamic-content p {
+    font-size: 40px;
+    margin: 20px;
+}
+
+#dynamic-content button {
+    background-color: rgba(236, 183, 109, 0.611);
+    border: none;
+    border-radius: 7px;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.footer {
+    background-color: rgba(236, 183, 109, 0.611);
+    color: black;
+    padding: 10px 0;
+    text-align: center;
+}
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo"><img src="logo.jpg"></div>
+        <ul>
+            <li><h1>Welcome to WILD MINDS</h1></li>
+            <li><h3>Welcome to our oasis of positivity and well-being! At WILD MINDS, we believe that happiness is a journey, and we're here to accompany you on that path. Take a deep breath, relax, and explore the uplifting content that awaits you. Whether you're seeking a moment of inspiration, a boost of motivation, or a friendly community to share your thoughts, you've come to the right place.</h3></li>
+            
+        </ul>
+    </nav>
+    <div class="content">
+        <img src="pic1.jpg" alt="">
+        <div class="text">
+            <h1>Mindful Moments</h1>
+            <p>Take a mindful pause. Close your eyes, inhale deeply, and exhale the worries away. In this moment, you are here, and that is enough. Explore our Mindful Moments for a journey into tranquility.
+            </p><p>Start your day with a dose of positivity through our Daily Affirmations. Cultivate a positive mindset by affirming your strengths and embracing the potential within you. These affirmations serve as reminders that you are capable, resilient, and deserving of happiness.</p>
+            <button onclick="nextPage()">Start Here</button>
+        </div>
+    </div>
+    <div id="dynamic-content"></div>
+    <div class="footer">
+        <p>&copy; 2024 All rights reserved.</p>
+ 
+    </div>
+    <script>
+        // script.js
+        function nextPage() {
+    let userName = prompt("Enter your name:");
+    let c = prompt("what's your age?")
+    if (userName) {
+        let randomNumber = Math.floor(Math.random() * paragraphs.length);
+        let randomParagraph = paragraphs[randomNumber];
+
+        // Get a reference to the dynamic content container
+        let dynamicContent = document.getElementById("dynamic-content");
+
+        // Clear the current content of the container
+        dynamicContent.innerHTML = "";
+
+        // Create a new heading and paragraph elements
+        let heading = document.createElement("h1");
+        let paragraph = document.createElement("p");
+
+        // Set the text content of the heading and paragraph elements
+        heading.textContent = `GOOD DAY  , ${userName}!`;
+        paragraph.textContent = randomParagraph.text;
+
+        // Append the heading and paragraph elements to the container
+        dynamicContent.appendChild(heading);
+        dynamicContent.appendChild(paragraph);
+
+        // Add a new button element for going back
+        let goBackButton = document.createElement("button");
+        goBackButton.textContent = "Click here if you wanna go in details";
+        goBackButton.onclick = () => {
+            window.location.replace("index.html");
+        };
+        //goBackButton.onclick = function() {
+            //window.history.back();
+       // };
+        dynamicContent.appendChild(goBackButton);
+    }
+}
+
+let paragraphs = [
+    {text: "In moments of challenge, remember the strength that resides within you. Life's journey may bring unexpected storms, but you have weathered them before and emerged even stronger. Trust in your resilience, for you are capable of overcoming anything that comes your way."},
+    {text: "Life's journey is a rollercoaster of highs and lows. Embrace every twist and turn, for they shape your unique story. Your resilience is your greatest asset, propelling you forward even in the face of adversity. You are capable, you are worthy, and you are never alone"},
+    {text: "Life can be a labyrinth, and in the midst of uncertainty, remember that you are a beacon of light. Your presence illuminates the path, guiding you and others toward moments of joy, love, and connection. Your journey is significant, and you are making a positive impact."},
+    { text: "You are not alone on this journey. Reach out, share your thoughts, and allow the warmth of human connection to comfort your soul. Every connection is a reminder that we are intertwined in the tapestry of life, supporting and uplifting one another." },
+    { text: "Tomorrow is a blank page waiting for your story. No matter the challenges of today, a new dawn brings fresh opportunities and the promise of positive change. Approach each day with hope, for there is immense power in the possibility of tomorrow."},
+    {text: "Today, take a moment to acknowledge the strength within you. Despite the storms you've weathered, you stand tall. Your scars tell a story of survival and triumph. Keep moving forward, for brighter days lie ahead. I believe in you."},
+    {text: "Your life is a canvas, painted with experiences that shape your essence. Embrace the messy, imperfect beauty of it all. Every challenge you've overcome has made you stronger. Your journey is uniquely yours, and it's worth celebrating. Keep shining."},
+    {text: "In the hustle and bustle of life, don't forget to prioritize your well-being. Take a deep breath and center yourself. You are worthy of love, happiness, and inner peace. Remember, it's okay to take a step back and care for yourself. You deserve it."},
+    {text: "When life feels overwhelming, don't hesitate to reach out for support. Asking for help is a sign of strength, not weakness. You are surrounded by a community that cares for you. Together, we can navigate through the toughest of times. You are never alone."},
+    {text: "In the grand tapestry of life, you are a vibrant thread woven with purpose and intention. Embrace your uniqueness and shine brightly. You are an essential part of this beautiful mosaic we call existence."},
+    {text: "Like a butterfly emerging from its cocoon, you have the power to transform. Embrace change, for it is the catalyst for growth. Your journey may be challenging, but the beauty lies in the journey itself"},
+    {text: "Every sunrise brings a new beginning, a chance to start fresh. Leave yesterday's worries behind and embrace the possibilities of today. You hold the power to shape your destiny"},
+    {text: "Happiness is not found in the pursuit of perfection, but in the acceptance of imperfection. Embrace your flaws, for they are what make you beautifully human .Remember, the stars cannot shine without darkness. In the darkest moments, find solace in the promise of a brighter tomorrow."},
+    {text: "In moments of self-doubt and insecurity, remember that you are enough just as you are. You possess unique gifts, talents, and strengths that the world needs. Embrace your authenticity and shine your light brightly for all to see"},
+    {text: "As you journey through life, allow yourself the grace to embrace imperfection and uncertainty. It's okay to not have all the answers or to feel unsure of the path ahead. Trust in the wisdom of your intuition, and know that you are capable of finding your way forward, one step at a time. "},
+    {text: "The purpose of life is not to be happy. It is to be useful, to be honorable, to be compassionate, to have it make some difference that you have lived and lived well."},
+    {text: "The person who is always there for others, know that your heart is rare.That you are worthy of love that you keep giving to everyone.Remind yourself that you don't always have to be strong , that you don't always have to be a fixer."},
+    {text: "Remind yourself that you do not need to carry the weight of the world on your shoulders,that you may not be able to save everyone,that you may not be able to heal every hurt but you are enough for yourself , you sunshine is only for yourself."},
+    {text: "Sometimes, no matter how much love is there,you have to lay it down.You have to walk away.You have to accept that sometimes you get too big for it,or you want different things or you cannot pour yourself out for it any longer . AND THAT'S OKAYYY!!"},
+    {text: "In alot of ways you learn that how your worst days are important.Thay are a part of your learning process,how they have a special kind of role in unfolding of things .How thay are all strung together and paint this imperfectly perfect picture and as you glance at it you realize how it makes you feel something inside ,something that nakes you relieved !!"},
+    {text: "With each new experience, you gain wisdom, courage, and a deeper understanding of yourself and the world around you. Seize the day with enthusiasm and optimism, for the possibilities are endless when you dare to dream and believe in the power of your own potential."},
+    {text: "Each day is a blank canvas waiting to be painted with the vibrant colors of life. It is a journey of self-discovery, exploration, and growth. Embrace the opportunities that come your way, for they are stepping stones on the path to realizing your dreams."},
+    
+];
+    </script>
+</body>
+</html>
